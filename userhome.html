@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+<head>
+	{% if title %}
+		<title>title</title>
+	{% else %}
+		<title>Welcome User!<title>
+	{% endif %}
+	
+	<script>
+		function verify {
+			return true;
+		}
+	</script>
+	
+</head>
+<body bgcolor="{{bkcolor}}">
+
+	{% if title %}
+		<h1>{{title}}</h1>
+	{% else %}
+		<h1>Welcome User!<h1>
+	{% endif %}
+	
+	{% if username %}
+		Welcome {{username}}!
+	{% else %}
+		Welcome!
+	{% endif %}
+	
+	<br><hr><br>
+	
+	<img src={{imgurl}} width="250" length="250"></img>
+	
+	<form action="assignment11.html" method="get" onsubmit="return true">
+		<input type="hidden" name="logout" value="log_out"></input>
+		<button type="submit">Log Out</button>
+	</form>
+	
+	<br><hr><br>
+	
+	<form action="assignment11.html" method="get" onsubmit="return verify()">
+		<input type="hidden" name="update" value="up_date"></input>
+		
+		<label for="fname">First Name:</label>
+		<input type="text" name="fname" id="fname" value="{{fname}}"></input>
+		<br><br>
+		
+		<label for="lname">Last Name:</label>
+		<input type="text" name="lname" id="lname" value="{{lname}}"></input>
+		<br><br>
+		
+		<label for="bkcolor">Background Color:</label>
+		<input type="text" name="bkcolor" id="bkcolor" value="{{bkcolor}}"></input>
+		<br><br>
+		
+		<label for="title">Title:</label>
+		<input type="text" size="50" name="title" id="title" value="{{title}}"></input>
+		<br><br>
+		
+		<label for="imgurl">Image:</label>
+		<input type="text" size="75" name="imgurl" id="imgurl" value="{{imgurl}}"></input>
+		<br><br>
+		
+		<button type="submit">Update Page</button>
+
+	</form>
+	
+</body>
+</html>

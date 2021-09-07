@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+<head>
+	<title>Welcome to Robert Bell's Assignment 11 Website!</title>
+	
+	<script>
+		function verify1() {
+			if(document.getElementById("username").value == "" || document.getElementById("password").value == "") {
+				alert("Please fill out all fields to log in");
+				return false;
+			}
+			return true;
+		}
+		
+		function verify2() {
+			if(document.getElementById("sigusername").value == "" || document.getElementById("sigpassword").value == "" || document.getElementById("fname").value == "" || document.getElementById("lname").value == "") {
+				alert("Please fill out all fields to sign up");
+				return false;
+			}
+			return true;
+		}
+	</script>
+	
+</head>
+<body>
+	<h1>Welcome to Robert Bell's Assignment 11 Website!</h1>
+	<hr>
+	
+	{% if invalid %}
+	<p color="red">Invalid password, try again:</p>
+	{% endif %}
+	{% if nouser %}
+	<p color="red">User not found, try again:</p>
+	{% endif %}
+	{% if nonuniqe %}
+	<p color="red">Username taken, try another username:</p>
+	{% endif %}
+	
+	<h2>Log In</h2>
+	<form method="get" action="assignment11.html" onsubmit="return verify1()">
+		<input type="hidden" name="login" value="log_in"></input>
+	
+		<label for="username">Username:</label>
+		<input type="text" name="username" id="username" value="{{username}}"></input>
+		<br><br>
+		
+		<label for="password">Password:</label>
+		<input type="password" name="password" id="password"></input>
+		
+		<button type="submit">Log In</button>
+	</form>
+	<hr>
+	
+	<h2>Sign Up</h2>
+	<form method="get" action="assignment11.html" onsubmit="return verify2()">
+		<input type="hidden" name="signup" value="sign_up"></input>
+	
+		<label for="username">Username:</label>
+		<input type="text" name="username" id="sigusername"></input>
+		<br><br>
+		
+		<label for="password">Password:</label>
+		<input type="password" name="password" id="sigpassword"></input>
+		<br><br>
+		
+		<label for="fname">First Name:</label>
+		<input type="text" name="fname" id="fname"></input>
+		<br><br>
+		
+		<label for="lname">Last Name:</label>
+		<input type="text" name="lname" id="lname"></input>
+		
+		<button type="submit">Log In</button>
+	</form>
+</body>
+</html>
